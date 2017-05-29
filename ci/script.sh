@@ -9,10 +9,13 @@ main() {
 
     if [ ! -z $DISABLE_TESTS ]; then
         return
+    elif [ ! -z $SKIP_DOCTEST ]; then
+      cross test --target $TARGET
+      cross test --target $TARGET --release
+    else
+      cross test --target $TARGET
+      cross test --target $TARGET --release
     fi
-
-    cross test --target $TARGET
-    cross test --target $TARGET --release
 }
 
 # we don't run the "test phase" when doing deploys
