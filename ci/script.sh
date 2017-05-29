@@ -10,8 +10,8 @@ main() {
     if [ ! -z $DISABLE_TESTS ]; then
         return
     elif [ ! -z $SKIP_DOCTEST ]; then
-      cross test --target $TARGET
-      cross test --target $TARGET --release
+      cross test --target $TARGET --lib
+      cross test --target $TARGET --release --lib
     else
       cross test --target $TARGET
       cross test --target $TARGET --release
